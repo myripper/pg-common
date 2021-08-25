@@ -9,5 +9,7 @@
     <Import_RootNamespace>pg_common</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Stats\StatsContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Stats\StreamAggregatedTrade.cs" />
   </ItemGroup>
 </Project>
