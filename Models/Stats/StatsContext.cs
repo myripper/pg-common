@@ -47,13 +47,14 @@ namespace PgCommon.Context
         {
             modelBuilder.Entity<StreamAggregatedTrade>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.AggregateTradeId)
+                    .HasName("AggregateTradeId");
 
                 entity.ToTable("stream_aggregated_trade");
 
-                entity.Property(e => e.Event).HasColumnType("date");
+                entity.Property(e => e.Event).HasMaxLength(10);
 
-                entity.Property(e => e.EventTime).HasColumnType("date");
+                entity.Property(e => e.EventTime).HasColumnType("timestampz");
 
                 entity.Property(e => e.Price).HasColumnType("numeric(10,7)");
 
@@ -61,7 +62,7 @@ namespace PgCommon.Context
 
                 entity.Property(e => e.Symbol).HasMaxLength(50);
 
-                entity.Property(e => e.TradeTime).HasColumnType("date");
+                entity.Property(e => e.TradeTime).HasColumnType("timestampz");
             });
 
             OnModelCreatingPartial(modelBuilder);
