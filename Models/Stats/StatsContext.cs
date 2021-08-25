@@ -5,9 +5,26 @@ using PgCommon.Models.Stats;
 
 namespace PgCommon.Context
 {
+    public partial class StatsContextRead : StatsContext
+    {
+        public StatsContextRead()
+        {
+        }
+
+        public StatsContextRead(DbContextOptions<StatsContextRead> options)
+            : base(options)
+        {
+        }
+    }
+
     public partial class StatsContext : DbContext
     {
         public StatsContext()
+        {
+        }
+        
+        protected StatsContext(DbContextOptions options)
+            : base(options)
         {
         }
 
