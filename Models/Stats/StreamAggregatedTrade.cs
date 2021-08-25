@@ -7,7 +7,7 @@ namespace PgCommon.Models.Stats
     {
         public long? AggregateTradeId { get; set; }
         public bool? BuyerIsMaker { get; set; }
-        public DateTime? Event { get; set; }
+        public string Event { get; set; }
         public DateTime? EventTime { get; set; }
         public long? FirstTradeId { get; set; }
         public bool? Ignore { get; set; }
